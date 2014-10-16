@@ -1,4 +1,4 @@
-clafer-tools-portable
+clafer-tools-st3
 =====================
 
 v0.3.7
@@ -14,7 +14,7 @@ Features and Usage
 ------------------
 
 * syntax highlighting
-* compilation `<CTRL>+B`
+* compilation `<CTRL>+b`
 * instance generation using
    * Alloy-based instance generator with simple scope inference `<CTRL>+i, g, s`
    * Alloy-based instance generator with full scope inference `<CTRL>+i, g, f`
