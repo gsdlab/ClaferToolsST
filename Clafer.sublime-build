@@ -1,0 +1,4 @@
+{
+	"cmd": [ "$packages/ClaferToolsST/clafer", "$file" ],
+	"selector": "source.clafer"
+}
