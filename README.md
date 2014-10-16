@@ -13,9 +13,9 @@ Contributors
 Features and Usage
 ------------------
 
-* syntax highlighting
-* compilation `<CTRL>+b`
-* instance generation using
+* Syntax highlighting
+* Compilation `<CTRL>+b`
+* Instance generation using
    * Alloy-based instance generator with simple scope inference `<CTRL>+i, g, s`
    * Alloy-based instance generator with full scope inference `<CTRL>+i, g, f`
    * Choco-based instance generator with simple scope inference `<CTRL>+i, g, c`
@@ -32,7 +32,15 @@ Installation
       * type the name of the package
    * Open the `Packages` folder 
       * `Preferences->Browse Packages...`
-2. Copy the folders `Clafer` and `SublimeREPL` from this project into your Sublime's `Packages` folder
-3. Download the latest binary distribution of Clafer Tools
+2. Download the [ZIP archive](https://github.com/gsdlab/clafer-tools-st3/archive/master.zip) of this project
+   * Unzip the archive into a temporary location
+   * Copy the folders `Clafer` and `SublimeREPL` from this project into your Sublime's `Packages` folder
+4. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * unzip the contents into `Packages/Clafer` 
+   * Unzip the contents into `Packages/Clafer` 
+
+Planned Improvements
+--------------------
+
+* Code snippets for quantified expressions such as `[ all disj x1; x2 : X | ... ]`
+* Ease installation via Package Control directly
