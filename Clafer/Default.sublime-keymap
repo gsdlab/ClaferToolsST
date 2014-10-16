@@ -1,0 +1,34 @@
+[
+    {
+        "keys": [ "ctrl+i", "g", "s" ],
+        "args": {
+            "id": "repl_claferIGS",
+            "file": "config/ClaferIG/IGS.sublime-menu"
+        },
+       "command": "run_existing_window_command"
+    },
+    {
+        "keys": [ "ctrl+i", "g", "f" ],
+        "args": {
+            "id": "repl_claferIGF",
+            "file": "config/ClaferIG/IGF.sublime-menu"
+        },
+       "command": "run_existing_window_command"
+    },
+    {
+        "keys": [ "ctrl+i", "g", "c" ],
+        "args": {
+            "id": "repl_claferChocoIG",
+            "file": "config/ClaferIG/IGC.sublime-menu"
+        },
+       "command": "run_existing_window_command"
+    },
+    {
+        "keys": [ "ctrl+i", "g", "m" ],
+        "args": {
+            "id": "repl_claferSMT",
+            "file": "config/ClaferIG/IGM.sublime-menu"
+        },
+       "command": "run_existing_window_command"
+    }
+]

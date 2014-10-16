@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>cfr</string>
+	</array>
+	<key>name</key>
+	<string>Clafer</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>\"</string>
+			<key>end</key>
+			<string>\"</string>
+			<key>name</key>
+			<string>string.quoted.double.clafer</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(\d+)\b</string>
+			<key>name</key>
+			<string>constant.numeric.clafer</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(int|integer|string|real|clafer|ref|parent|abstract|else|in|no|opt|xor|all|enum|lone|not|or|disj|mux|one|some|\?|\*|\+|-&gt;|-&gt;&gt;|\:|\+|-|/|\.|&lt;:|:&gt;|\|&amp;&amp;|\|\||\+\+|=|&gt;=|&lt;=|=&gt;|&lt;=&gt;|&lt;|&gt;)\b</string>
+			<key>name</key>
+			<string>keyword.control.clafer</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.clafer</string>
+	<key>uuid</key>
+	<string>47176018-fe13-4440-b721-6972621716be</string>
+</dict>
+</plist>

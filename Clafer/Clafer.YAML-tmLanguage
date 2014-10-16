@@ -1,0 +1,16 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Clafer
+scopeName: source.clafer
+fileTypes: [cfr]
+uuid: 47176018-fe13-4440-b721-6972621716be
+
+patterns:
+- name: string.quoted.double.clafer
+  begin: \"
+  end: \"
+- name: constant.numeric.clafer
+  match: \b(\d+)\b
+- name: keyword.control.clafer
+  match: \b(int|integer|string|real|clafer|ref|parent|abstract|else|in|no|opt|xor|all|enum|lone|not|or|disj|mux|one|some|\?|\*|\+|->|->>|\:|\+|-|/|\.|<:|:>|\|&&|\|\||\+\+|=|>=|<=|=>|<=>|<|>)\b
+...
