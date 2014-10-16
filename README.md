@@ -1,5 +1,5 @@
-clafer-tools-st3
-=====================
+ClaferToolsST3
+==============
 
 v0.3.7
 
