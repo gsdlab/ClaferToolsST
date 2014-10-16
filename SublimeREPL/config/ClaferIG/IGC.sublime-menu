@@ -17,7 +17,7 @@
                     "encoding": "utf8",
                     "cmd": [ "java"
                            , "-jar"
-                           , "claferchocoig-0.3.6.1-jar-with-dependencies.jar"
+                           , "claferchocoig.jar"
                            , "--repl"
                            , "--prettify"
                            , "--file"
