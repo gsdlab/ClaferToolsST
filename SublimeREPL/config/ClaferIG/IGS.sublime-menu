@@ -15,7 +15,7 @@
                  "args": {
                     "type": "subprocess",
                     "encoding": "utf8",
-                    "cmd": ["$packages/Clafer/claferIG"
+                    "cmd": ["$packages/ClaferToolsST/claferIG"
                            , "$file"
                            ],
                     "cwd": "$file_path",

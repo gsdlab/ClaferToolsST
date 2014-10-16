@@ -20,7 +20,7 @@
                            , "--mode=repl"
                            , "$file" 
                            ],
-                    "cwd": "$packages/Clafer/",
+                    "cwd": "$packages/ClaferToolsST/",
                     "external_id": "claferSMT"
                     }
                 }
