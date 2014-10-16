@@ -27,9 +27,14 @@ Installation
 1. Install [Sublime Text 3](http://www.sublimetext.com/3) or [Sublime Text 2](http://www.sublimetext.com/2)
 2. In Sublime Text
    * Install [Package Control](https://sublime.wbond.net/installation)
-   * Install packages `SublimeREPL`, `ClaferToolsST`, and (optionally) `SidebarExtensions` 
+   * Install packages `SublimeREPL` and (optionally) `SidebarEnhancements` 
       * `Preferences->Package Control->Install Package` 
       * type the name of the package
+   * Add this package repository
+      * `Preferences->Package Control->Add Repository`
+      * enter `https://github.com/gsdlab/ClaferToolsST/tree/master` 
+      * `Preferences->Package Control->Install Package`
+      * enter `ClaferToolsST`
    * Open the `Packages` folder 
       * `Preferences->Browse Packages...`
       * copy the folder `SublimeREPL` from `ClaferToolsST` to `Packages`
