@@ -24,17 +24,16 @@ Features and Usage
 Installation
 ------------
 
-0. Install [Sublime Text 3](http://www.sublimetext.com/3) or [Sublime Text 2](http://www.sublimetext.com/2)
-1. In Sublime Text
+1. Install [Sublime Text 3](http://www.sublimetext.com/3) or [Sublime Text 2](http://www.sublimetext.com/2)
+2. In Sublime Text
    * Install [Package Control](https://sublime.wbond.net/installation)
-   * Install packages `SublimeREPL`, `ClaferToolsST`, and, optionally, `SidebarExtensions` 
+   * Install packages `SublimeREPL`, `ClaferToolsST`, and (optionally) `SidebarExtensions` 
       * `Preferences->Package Control->Install Package` 
       * type the name of the package
    * Open the `Packages` folder 
       * `Preferences->Browse Packages...`
-      * `cd ClaferToolsST3`
-      * Copy the folder `SublimeREPL` from this project into your Sublime's `Packages` folder
-4. Download the latest binary distribution of Clafer Tools
+      * copy the folder `ClaferToolsST/SublimeREPL` to the folder `Packages`
+3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
    * Unzip the contents of the folder `clafer-tools-0.3.*` into `Packages/ClaferToolsST`
       * Make sure the folder structure is NOT `Packages/ClaferToolsST/clafer-tools-0.3.*`
