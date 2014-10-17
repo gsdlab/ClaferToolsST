@@ -6,11 +6,18 @@ fileTypes: [cfr]
 uuid: 47176018-fe13-4440-b721-6972621716be
 
 patterns:
+- name: comment.block.clafer
+  begin: /\*(?!#)
+  end: \*/
+- name: comment.line.clafer
+  match: (//).*$\n?
 - name: string.quoted.double.clafer
   begin: \"
   end: \"
 - name: constant.numeric.clafer
   match: \b(\d+)\b
 - name: keyword.control.clafer
-  match: \b(int|integer|string|real|clafer|ref|parent|abstract|else|in|no|opt|xor|all|enum|lone|not|or|disj|mux|one|some|\?|\*|\+|->|->>|\:|\+|-|/|\.|<:|:>|\|&&|\|\||\+\+|=|>=|<=|=>|<=>|<|>)\b
+  match: \b(int|integer|string|real|clafer|ref|parent|abstract|else|in|no|opt|xor|all|enum|lone|not|or|disj|mux|one|some)\b
+- name: keyword.operator.clafer
+  match: (\?|\*|\+|->|->>|\:|\+|-|/|\.|<:|:>|\|\&\&|\|\||\+\+|=|!=|>=|<=|=>|<=>|<|>|(|)|[|]|\.\.)
 ...
