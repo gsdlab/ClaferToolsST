@@ -13,7 +13,7 @@ Contributors
 Features and Usage
 ------------------
 
-* Syntax highlighting
+* Syntax highlighting of keywords, operators, comments, and integer and string literals
 * Compilation `<CTRL>+b`
 * Instance generation using
    * Alloy-based instance generator with simple scope inference `<CTRL>+i, g, s`
@@ -38,8 +38,15 @@ Installation
    * Unzip the contents of the folder `clafer-tools-0.3.*` into `Packages/Clafer Tools`
       * Make sure the folder structure is NOT `Packages/Clafer Tools/clafer-tools-0.3.*`
 
+### Known Limitations
+
+* Works well only on Windows. 
+* ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac. 
+* On Linux and Mac
+   * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`.
+   * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found.
+
 Planned Improvements
 --------------------
 
-* Syntax highlighting
 * Code snippets for quantified expressions such as `[ all disj x1; x2 : X | ... ]`
