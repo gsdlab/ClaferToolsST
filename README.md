@@ -1,4 +1,4 @@
-ClaferToolsST
+Clafer Tools
 =============
 
 v0.3.7
@@ -27,16 +27,16 @@ Installation
 1. Install [Sublime Text 3](http://www.sublimetext.com/3) or [Sublime Text 2](http://www.sublimetext.com/2)
 2. In Sublime Text
    * Install [Package Control](https://sublime.wbond.net/installation)
-   * Install packages `SublimeREPL`, `ClaferToolsST` and (optionally) `SidebarEnhancements` 
+   * Install packages `SublimeREPL`, `Clafer Tools` and (optionally) `SidebarEnhancements` 
       * `Preferences->Package Control->Install Package` 
       * type the name of the package
    * Open the `Packages` folder 
       * `Preferences->Browse Packages...`
-      * copy the folder `SublimeREPL` from `ClaferToolsST` to `Packages`
+      * copy the folder `SublimeREPL` from `Clafer Tools` to `Packages`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.3.*` into `Packages/ClaferToolsST`
-      * Make sure the folder structure is NOT `Packages/ClaferToolsST/clafer-tools-0.3.*`
+   * Unzip the contents of the folder `clafer-tools-0.3.*` into `Packages/Clafer Tools`
+      * Make sure the folder structure is NOT `Packages/Clafer Tools/clafer-tools-0.3.*`
 
 Planned Improvements
 --------------------

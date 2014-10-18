@@ -23,7 +23,7 @@
                            , "--file"
                            , "$file" 
                            ],
-                    "cwd": "$packages/ClaferToolsST/",
+                    "cwd": "$packages/Clafer Tools/",
                     "external_id": "claferChocoIG"
                     }
                 }
