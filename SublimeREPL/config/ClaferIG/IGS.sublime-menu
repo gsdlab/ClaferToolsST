@@ -8,21 +8,23 @@
             "id": "SublimeREPL",
             "children":
             [
-                {"command": "repl_open", 
-                 "caption": "ClaferIG",
+                {"command": "repl_open",
+                 "caption": "ClaferIG (SMT)",
                  "id": "repl_claferIGS",
                  "mnemonic": "s",
                  "args": {
                     "type": "subprocess",
                     "encoding": "utf8",
-                    "cmd": ["$packages/Clafer Tools/claferIG"
+                    "cmd": [ "python"
+                           , "ClaferSMT.egg"
+                           , "--mode=repl"
                            , "$file"
                            ],
-                    "cwd": "$file_path",
-                    "external_id": "claferIG"
+                    "cwd": "$packages/Clafer-Bin/",
+                    "external_id": "claferIGS"
                     }
                 }
-            ]   
+            ]
         }]
     }
 ]

@@ -1,7 +1,7 @@
 Clafer Tools
 =============
 
-v0.3.7
+v0.3.9
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
@@ -15,11 +15,10 @@ Features and Usage
 
 * Syntax highlighting of keywords, operators, comments, and integer and string literals
 * Compilation `<CTRL>+b`
-* Instance generation using
-   * Alloy-based instance generator with simple scope inference `<CTRL>+i, g, s`
-   * Alloy-based instance generator with full scope inference `<CTRL>+i, g, f`
-   * Choco-based instance generator with simple scope inference `<CTRL>+i, g, c`
-   * Z3 SMT-based instance generator with simple scope inference `<CTRL>+i, g, m`
+* Instance generation (with simple scope inference) using
+   * Alloy-based instance generator `<CTRL>+i, g, a`
+   * Choco-based instance generator `<CTRL>+i, g, c`
+   * Z3 SMT-based instance generator `<CTRL>+i, g, s`
 
 Installation
 ------------
@@ -35,8 +34,8 @@ Installation
       * copy the folder `SublimeREPL` from `Clafer Tools` to `Packages`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.3.*` into `Packages/Clafer Tools`
-      * Make sure the folder structure is NOT `Packages/Clafer Tools/clafer-tools-0.3.*`
+   * Unzip the contents of the folder `clafer-tools-0.3.9` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer Tools/clafer-tools-0.3.9`
 
 ### Known Limitations
  
@@ -47,7 +46,8 @@ Installation
    * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found. Add the following line at the end of your `.profile` or `.bashrc`
       * `PATH=".:$PATH"`
    * for python to be able to find the `Z3` library, add the following line to your `.profile` or `.bashrc`
-      * `export LD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer Tools:$LD_LIBRARY_PATH"` 
+      * on Linux, `export LD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$LD_LIBRARY_PATH"` 
+      * on Mac, `export DYLD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$DYLD_LIBRARY_PATH"`
 
 Planned Improvements
 --------------------

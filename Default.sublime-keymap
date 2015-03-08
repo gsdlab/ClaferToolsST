@@ -1,33 +1,25 @@
 [
     {
-        "keys": [ "ctrl+i", "g", "s" ],
+        "keys": [ "ctrl+i", "g", "a" ],
         "args": {
-            "id": "repl_claferIGS",
-            "file": "config/ClaferIG/IGS.sublime-menu"
-        },
-       "command": "run_existing_window_command"
-    },
-    {
-        "keys": [ "ctrl+i", "g", "f" ],
-        "args": {
-            "id": "repl_claferIGF",
-            "file": "config/ClaferIG/IGF.sublime-menu"
+            "id": "repl_claferIGA",
+            "file": "config/ClaferIG/IGA.sublime-menu"
         },
        "command": "run_existing_window_command"
     },
     {
         "keys": [ "ctrl+i", "g", "c" ],
         "args": {
-            "id": "repl_claferChocoIG",
+            "id": "repl_claferIGC",
             "file": "config/ClaferIG/IGC.sublime-menu"
         },
        "command": "run_existing_window_command"
     },
     {
-        "keys": [ "ctrl+i", "g", "m" ],
+        "keys": [ "ctrl+i", "g", "s" ],
         "args": {
-            "id": "repl_claferSMT",
-            "file": "config/ClaferIG/IGM.sublime-menu"
+            "id": "repl_claferIGS",
+            "file": "config/ClaferIG/IGS.sublime-menu"
         },
        "command": "run_existing_window_command"
     }

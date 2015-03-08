@@ -8,19 +8,21 @@
             "id": "SublimeREPL",
             "children":
             [
-                {"command": "repl_open", 
-                 "caption": "ClaferIG",
-                 "id": "repl_claferIGF",
-                 "mnemonic": "f",
+                {"command": "repl_open",
+                 "caption": "ClaferIG (Alloy)",
+                 "id": "repl_claferIGA",
+                 "mnemonic": "a",
                  "args": {
                     "type": "subprocess",
                     "encoding": "utf8",
-                    "cmd": ["$packages/Clafer Tools/claferIG", "$file", "--ss=full"],
+                    "cmd": ["$packages/Clafer-Bin/claferIG"
+                           , "$file"
+                           ],
                     "cwd": "$file_path",
-                    "external_id": "claferIG"
+                    "external_id": "claferIGA"
                     }
                 }
-            ]   
+            ]
         }]
     }
 ]

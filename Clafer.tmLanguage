@@ -40,13 +40,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(int|integer|string|real|clafer|ref|parent|abstract|else|in|no|opt|xor|all|enum|lone|not|or|disj|mux|one|some)\b</string>
+			<string>\b(clafer|this|parent|ref|root|children|int|integer|string|real|max|min|sum|product|xor|in|if|then|else|no|not|some|one|all|disj|opt|mux|or|lone|abstract|enum|assert|final|initial|let|never|sometime|lonce|once|always|must|precede|follow|initially|finally|U|until|W|weakuntil|F|eventually|G|globally|X|next|before|after|between|and|until)\b</string>
 			<key>name</key>
 			<string>keyword.control.clafer</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(\?|\*|\+|-&gt;|-&gt;&gt;|\:|\+|-|/|\.|&lt;:|:&gt;|\|\&amp;\&amp;|\|\||\+\+|=|!=|&gt;=|&lt;=|=&gt;|&lt;=&gt;|&lt;|&gt;|(|)|[|]|\.\.)</string>
+			<string>(#|\?|\*|\+|-&gt;|-&gt;&gt;|\:|\+|-|/|%|\.|&lt;:|:&gt;|\\|\&amp;\&amp;|\|\||,|\+\+|\*\*|--|=|:=|!=|&gt;=|&lt;=|=&gt;|&lt;=&gt;|&lt;|&gt;|(|)|[|]|\.\.|&gt;&gt;|&lt;&lt;|--&gt;|--&gt;&gt;|-[|]-&gt;|]-&gt;&gt;)</string>
 			<key>name</key>
 			<string>keyword.operator.clafer</string>
 		</dict>

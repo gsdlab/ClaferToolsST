@@ -8,9 +8,9 @@
             "id": "SublimeREPL",
             "children":
             [
-                {"command": "repl_open", 
-                 "caption": "ClaferChocoIG",
-                 "id": "repl_claferChocoIG",
+                {"command": "repl_open",
+                 "caption": "ClaferIG (Choco)",
+                 "id": "repl_claferIGC",
                  "mnemonic": "c",
                  "args": {
                     "type": "subprocess",
@@ -21,13 +21,13 @@
                            , "--repl"
                            , "--prettify"
                            , "--file"
-                           , "$file" 
+                           , "$file"
                            ],
-                    "cwd": "$packages/Clafer Tools/",
-                    "external_id": "claferChocoIG"
+                    "cwd": "$packages/Clafer-Bin/",
+                    "external_id": "claferIGC"
                     }
                 }
-            ]   
+            ]
         }]
     }
 ]
