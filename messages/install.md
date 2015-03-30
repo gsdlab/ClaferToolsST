@@ -26,10 +26,10 @@ To finish the installation
       * on Linux, `export LD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$LD_LIBRARY_PATH"`
       * on Mac, `export DYLD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$DYLD_LIBRARY_PATH"`
 
-* On MacOS Yosemite, the preferred way of setting the variable `PATH` is by editing `/etc/paths`. However, despite that, Sublime Text 2/3 will not see the specified values because it is a GUI application and it will only see `/usr/bin:/bin:/usr/sbin:/sbin:/`. To check the PATH visible to Sublime
+* On MacOS Yosemite, the preferred way of setting the variable `PATH` is by editing `/etc/paths`. However, despite that, Sublime Text 2/3 will not see the specified values because it is a GUI application and it will only see `/usr/bin:/bin:/usr/sbin:/sbin:/`. To check the value of `PATH` visible to Sublime
    1. open console `View->Show Console`
    2. execute `import os; print (os.environ['PATH'])`
-   3. if you see `/usr/bin:/bin:/usr/sbin:/sbin:/`, you are affected by the Yosemite PATH bug and ClaferChocoIG will be unable to comple the model for you because it calls the clafer executable.
-   4. the workaround is to create a symlink as follows:
-      * `sudo ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin  /usr/bin/clafer`
-      * this way, `clafer` executable will be visible on the default `PATH`.
+   3. if you see `/usr/bin:/bin:/usr/sbin:/sbin:/`, you are affected by the Yosemite `PATH` bug and ClaferChocoIG will be unable to comple the model for you because it calls the clafer executable.
+   4. the workaround is to:
+      * create a symlink `sudo ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/clafer /usr/bin/clafer` so that `clafer` executable will be visible on the default `PATH`.
+   5. to conveniently use ClaferChocoIG, move the script `claferchocoig.sh` (included in Mac binary distro) to `/usr/bin` by executing `sudo mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/claferchocoig.sh /usr/bin`.
