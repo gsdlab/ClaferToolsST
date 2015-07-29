@@ -1,9 +1,11 @@
 Clafer Tools
 =============
 
-v0.3.10
+v0.4.0
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
+
+See release notes for [Clafer 0.4.0](http://www.clafer.org/2015/07/clafer-claferig-claferwiki-040-released.html).
 
 Contributors
 ------------

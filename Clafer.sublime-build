@@ -1,4 +1,4 @@
 {
-	"cmd": [ "$packages/Clafer-Bin/clafer", "$file", "-m=alloy42", "-m=clafer", "-m=html", "-m=choco", "--self-contained" ],
+	"cmd": [ "$packages/Clafer-Bin/clafer", "$file", "-m=alloy", "-m=clafer", "-m=html", "-m=choco", "--self-contained" ],
 	"selector": "source.clafer"
 }
