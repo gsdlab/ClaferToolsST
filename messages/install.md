@@ -5,9 +5,7 @@ To finish the installation
 1. Open Sublime's `Packages` folder
    * `Preferences->Browse Packages...`
    * copy the folder `SublimeREPL` from `Clafer Tools` to `Packages`
-2. Download the latest binary distribution of Clafer Tools from
-   * [Clafer Tools Binary Distributions](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-3. Download the latest binary distribution of Clafer Tools
+2. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
    * Unzip the contents of the folder `clafer-tools-0.3.10` into `Packages/Clafer-Bin`
       * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.3.10`, that is, the contents of the folder `clafer-tools-0.3.10` are directly inside `Clafer-Bin`
