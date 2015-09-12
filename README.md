@@ -1,11 +1,11 @@
 Clafer Tools
 =============
 
-v0.4.0
+v0.4.1
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
-See release notes for [Clafer 0.4.0](http://www.clafer.org/2015/07/clafer-claferig-claferwiki-040-released.html).
+See release notes for [Clafer 0.4.1](http://www.clafer.org/2015/09/clafer-claferig-claferwiki.html).
 
 Contributors
 ------------
@@ -20,7 +20,7 @@ Features and Usage
 * Instance generation (with simple scope inference) using
    * Alloy-based instance generator `<CTRL>+i, g, a`
    * Choco-based instance generator `<CTRL>+i, g, c`
-   * Z3 SMT-based instance generator `<CTRL>+i, g, s`
+   * Z3 SMT-based instance generator `<CTRL>+i, g, s` (only for 0.3.6.1)
 
 Installation
 ------------
@@ -37,8 +37,8 @@ Installation
          * on Mac, use the `merge` option not `replace`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.3.10` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.3.10`, that is, the contents of the folder `clafer-tools-0.3.10` are directly inside `Clafer-Bin`
+   * Unzip the contents of the folder `clafer-tools-0.4.1` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.1`, that is, the contents of the folder `clafer-tools-0.4.1` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
 
 ### Known Limitations and Workarounds
