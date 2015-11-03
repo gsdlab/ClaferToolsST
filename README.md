@@ -1,11 +1,11 @@
 Clafer Tools
 =============
 
-v0.4.2
+v0.4.2.1
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
-See release notes for [Clafer 0.4.2](http://www.clafer.org/2015/09/clafer-claferig-claferwiki.html).
+See release notes for [Clafer 0.4.2.1](http://www.clafer.org/2015/10/clafer-tools-042-released.html).
 
 Contributors
 ------------
@@ -16,7 +16,7 @@ Features and Usage
 ------------------
 
 * Syntax highlighting of keywords, operators, comments, and integer and string literals
-* Compilation `<CTRL>+b`. To change parameters of the command:
+* Compilation and validation `<CTRL>+b`. To change parameters of the command:
    * `Preferences->Browse Packages`
    * `cd Clafer Tools`
    * edit `Clafer.sublime-build`
@@ -40,8 +40,8 @@ Installation
          * on Mac, use the `merge` option not `replace`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.2` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2`, that is, the contents of the folder `clafer-tools-0.4.2` are directly inside `Clafer-Bin`
+   * Unzip the contents of the folder `clafer-tools-0.4.2.1` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2.1`, that is, the contents of the folder `clafer-tools-0.4.2.1` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
 
 ### Known Limitations and Workarounds

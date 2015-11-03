@@ -17,7 +17,7 @@
                     "encoding": "utf8",
                     "cmd": [ "java"
                            , "-jar"
-                           , "claferchocoig.jar"
+                           , "chocosolver.jar"
                            , "--repl"
                            , "--prettify"
                            , "--file"

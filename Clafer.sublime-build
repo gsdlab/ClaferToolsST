@@ -2,7 +2,7 @@
          , "$file"
          , "-m=alloy"
          , "-m=choco"
-				 , "-m=html"
+		 , "-m=html"
          , "--self-contained"
          , "-k"
          , "-v"
