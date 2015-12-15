@@ -6,7 +6,7 @@
          , "--self-contained"
          , "-k"
          , "-v"
-         , "--tooldir=\"$packages/Clafer-Bin\""
+         , "--tooldir=$packages/Clafer-Bin"
          ]
 	, "selector": "source.clafer"
 }
