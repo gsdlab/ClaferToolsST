@@ -43,10 +43,16 @@ Installation
    * Unzip the contents of the folder `clafer-tools-0.4.2.1` into `Packages/Clafer-Bin`
       * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2.1`, that is, the contents of the folder `clafer-tools-0.4.2.1` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
+4. On Windows only
+   * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
 
 ### Known Limitations and Workarounds
 
-* ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.
+* On Windows - Setting the PATH to 32bit Java installation
+   * install [32bit JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) but do not modify the PATH to point to it (there's no 32bit JRE anymore)
+   * in Sublime Text
+      * `Preferences->Package Settings->SublimeREPL->Settings - Default`
+      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_66/bin;{PATH}"},`
 
 * On Linux and Mac
    * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`
@@ -65,6 +71,7 @@ Installation
       * create a symlink `sudo ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/clafer /usr/bin/clafer` so that `clafer` executable will be visible on the default `PATH`.
    5. to conveniently use ClaferChocoIG, move the script `claferchocoig.sh` (included in Mac binary distro) to `/usr/bin` by executing `sudo mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/claferchocoig.sh /usr/bin`.
 
+* ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.   
 
 
 Planned Improvements

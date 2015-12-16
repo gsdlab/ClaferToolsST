@@ -10,8 +10,16 @@ To finish the installation
    * Unzip the contents of the folder `clafer-tools-0.4.2.1` into `Packages/Clafer-Bin`
       * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2.1`, that is, the contents of the folder `clafer-tools-0.4.2.1` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
+4. On Windows only
+   * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
 
 ### Known Limitations and Workarounds
+
+* On Windows - Setting the PATH to 32bit Java installation
+   * install [32bit JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) but do not modify the PATH to point to it (there's no 32bit JRE anymore)
+   * in Sublime Text
+      * `Preferences->Package Settings->SublimeREPL->Settings - Default`
+      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_66/bin;{PATH}"},`
 
 *. ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.
 
