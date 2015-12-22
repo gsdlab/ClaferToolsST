@@ -1,11 +1,11 @@
 Clafer Tools
 =============
 
-v0.4.2.1
+v0.4.3
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
-See release notes for [Clafer 0.4.2.1](http://www.clafer.org/2015/10/clafer-tools-042-released.html).
+See release notes for [Clafer 0.4.3](http://www.clafer.org/2015/10/clafer-tools-042-released.html).
 
 Contributors
 ------------
@@ -40,8 +40,8 @@ Installation
          * on Mac, use the `merge` option not `replace`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.2.1` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2.1`, that is, the contents of the folder `clafer-tools-0.4.2.1` are directly inside `Clafer-Bin`
+   * Unzip the contents of the folder `clafer-tools-0.4.3` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.3`, that is, the contents of the folder `clafer-tools-0.4.3` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
 4. On Windows only
    * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
