@@ -7,8 +7,8 @@ To finish the installation
    * copy the folder `SublimeREPL` from `Clafer Tools` to `Packages`
 2. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.2.1` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.2.1`, that is, the contents of the folder `clafer-tools-0.4.2.1` are directly inside `Clafer-Bin`
+   * Unzip the contents of the folder `clafer-tools-0.4.4` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.4`, that is, the contents of the folder `clafer-tools-0.4.4` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
 4. On Windows only
    * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
@@ -19,11 +19,11 @@ To finish the installation
    * install [32bit JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) but do not modify the PATH to point to it (there's no 32bit JRE anymore)
    * in Sublime Text
       * `Preferences->Package Settings->SublimeREPL->Settings - Default`
-      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_66/bin;{PATH}"},`
+      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_102/bin;{PATH}"},`
 
-*. ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.
+* ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.
 
-*. On Linux and Mac
+* On Linux and Mac
    * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`
       * in `Packages/Clafer Tools` execute `ln -s /usr/bin/python3 python`.
    * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found. Add the following line at the end of your `.profile` or `.bashrc`

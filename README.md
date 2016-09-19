@@ -1,11 +1,11 @@
 Clafer Tools
 =============
 
-v0.4.3
+v0.4.4
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
-See release notes for [Clafer 0.4.3](http://www.clafer.org/2015/10/clafer-tools-042-released.html).
+See release notes for [Clafer 0.4.4](http://www.clafer.org/2016/09/clafer-tools-044-released.html).
 
 Contributors
 ------------
@@ -40,8 +40,8 @@ Installation
          * on Mac, use the `merge` option not `replace`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.3` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.3`, that is, the contents of the folder `clafer-tools-0.4.3` are directly inside `Clafer-Bin`
+   * Unzip the contents of the folder `clafer-tools-0.4.4` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.4`, that is, the contents of the folder `clafer-tools-0.4.4` are directly inside `Clafer-Bin`
    * add `Clafer-Bin` to the variable `PATH`.
 4. On Windows only
    * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
@@ -52,7 +52,7 @@ Installation
    * install [32bit JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) but do not modify the PATH to point to it (there's no 32bit JRE anymore)
    * in Sublime Text
       * `Preferences->Package Settings->SublimeREPL->Settings - Default`
-      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_66/bin;{PATH}"},`
+      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_102/bin;{PATH}"},`
 
 * On Linux and Mac
    * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`
