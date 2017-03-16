@@ -1,11 +1,11 @@
 Clafer Tools
 =============
 
-v0.4.4
+v0.4.5
 
 Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
 
-See release notes for [Clafer 0.4.4](http://www.clafer.org/2016/09/clafer-tools-044-released.html).
+See release notes for [Clafer 0.4.5](http://www.clafer.org/2017/03/clafer-claferig-claferwiki-045-released.html).
 
 Contributors
 ------------
@@ -28,9 +28,11 @@ Features and Usage
 Installation
 ------------
 
-1. Install [Sublime Text 3](http://www.sublimetext.com/3) or [Sublime Text 2](http://www.sublimetext.com/2)
+1. Install [Sublime Text 3](http://www.sublimetext.com/3). 
+On Ubuntu, add the [WebUpd8 PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3) then execute `sudo apt install sublime-text-installer`. 
 2. In Sublime Text
-   * Install [Package Control](https://sublime.wbond.net/installation)
+   * Install `Package Control`
+      * `Tools->Install Package Control...`
    * Install packages `SublimeREPL`, `Clafer Tools` and (optionally) `SidebarEnhancements`
       * `Preferences->Package Control->Install Package`
       * type the name of the package
@@ -40,9 +42,9 @@ Installation
          * on Mac, use the `merge` option not `replace`
 3. Download the latest binary distribution of Clafer Tools
    * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.4` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.4`, that is, the contents of the folder `clafer-tools-0.4.4` are directly inside `Clafer-Bin`
-   * add `Clafer-Bin` to the variable `PATH`.
+   * Unzip the contents of the folder `clafer-tools-0.4.5` into `Packages/Clafer-Bin`
+      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.5`, that is, the contents of the folder `clafer-tools-0.4.5` are directly inside `Clafer-Bin`
+   * (optional) add `Clafer-Bin` to the variable `PATH`.
 4. On Windows only
    * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
 
