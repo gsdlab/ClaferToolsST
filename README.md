@@ -59,9 +59,9 @@ On Ubuntu, add the [WebUpd8 PPA](https://launchpad.net/~webupd8team/+archive/ubu
 * On Linux and Mac
    * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`
       * in `Packages/Clafer Tools` execute `ln -s /usr/bin/python3 python`.
-   * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found. Add the following line at the end of your `.profile` or `.bashrc`
+   * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found. Add the following line at the end of your `.profile`
       * `PATH=".:$PATH"`
-   * for python to be able to find the `Z3` library, add the following line to your `.profile` or `.bashrc`
+   * for python to be able to find the `Z3` library, add the following line to your `.profile`
       * on Linux, `export LD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$LD_LIBRARY_PATH"`
       * on Mac, `export DYLD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$DYLD_LIBRARY_PATH"`
 
