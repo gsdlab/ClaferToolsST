@@ -1,26 +1,15 @@
 [
+    // Only in Clafer models, so that ctrl+i (incremental find) works in other files.
     {
-        "keys": [ "ctrl+i", "g", "a" ],
-        "args": {
-            "id": "repl_claferIGA",
-            "file": "config/ClaferIG/IGA.sublime-menu"
-        },
-       "command": "run_existing_window_command"
+        "keys": ["ctrl+i", "g", "a"],
+        "command": "clafer_instances",
+        "args": { "backend": "alloy" },
+        "context": [{ "key": "selector", "operator": "equal", "operand": "source.clafer" }]
     },
     {
-        "keys": [ "ctrl+i", "g", "c" ],
-        "args": {
-            "id": "repl_claferIGC",
-            "file": "config/ClaferIG/IGC.sublime-menu"
-        },
-       "command": "run_existing_window_command"
-    },
-    {
-        "keys": [ "ctrl+i", "g", "s" ],
-        "args": {
-            "id": "repl_claferIGS",
-            "file": "config/ClaferIG/IGS.sublime-menu"
-        },
-       "command": "run_existing_window_command"
+        "keys": ["ctrl+i", "g", "c"],
+        "command": "clafer_instances",
+        "args": { "backend": "choco" },
+        "context": [{ "key": "selector", "operator": "equal", "operand": "source.clafer" }]
     }
 ]

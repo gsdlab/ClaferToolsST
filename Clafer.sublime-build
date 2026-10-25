@@ -1,12 +1,8 @@
-{ "cmd": [ "$packages/Clafer-Bin/clafer"
-         , "$file"
-         , "-m=alloy"
-         , "-m=choco"
-		 , "-m=html"
-         , "--self-contained"
-         , "-k"
-         , "-v"
-         , "--tooldir=$packages/Clafer-Bin"
-         ]
-	, "selector": "source.clafer"
+{
+    "target": "clafer_build",
+    "cancel": { "kill": true },
+    "selector": "source.clafer",
+    "variants": [
+        { "name": "Validate", "validate": true }
+    ]
 }

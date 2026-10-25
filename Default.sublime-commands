@@ -1,0 +1,11 @@
+[
+    { "caption": "Clafer: Compile", "command": "clafer_build" },
+    { "caption": "Clafer: Compile and Validate", "command": "clafer_build", "args": { "validate": true } },
+    { "caption": "Clafer: Instances (Alloy)", "command": "clafer_instances", "args": { "backend": "alloy" } },
+    { "caption": "Clafer: Instances (Choco)", "command": "clafer_instances", "args": { "backend": "choco" } },
+    {
+        "caption": "Preferences: Clafer Tools Settings",
+        "command": "edit_settings",
+        "args": { "base_file": "${packages}/Clafer Tools/Clafer Tools.sublime-settings", "default": "{\n\t$0\n}\n" }
+    }
+]

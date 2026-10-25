@@ -1,0 +1,9 @@
+{
+    // The folder of the Clafer tools (clafer, claferIG, chocosolver.jar, alloy6.2.0.jar),
+    // e.g., an unpacked clafer-tools binary distribution. Empty: use the tools on PATH.
+    "tools_path": "",
+
+    // The arguments of clafer for Tools > Build (the model is added at the end).
+    // The variant Validate also passes --validate and --tooldir.
+    "clafer_args": ["-m", "alloy", "-m", "choco", "-m", "html", "--self-contained"]
+}

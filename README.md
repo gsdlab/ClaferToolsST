@@ -1,82 +1,52 @@
 Clafer Tools
-=============
+============
 
-v0.4.5
+v0.5.4
 
-Integration of [Clafer Compiler and Instance Generators](http://clafer.org) into [Sublime Text 2/3](http://www.sublimetext.com/).
-
-See release notes for [Clafer 0.4.5](http://www.clafer.org/2017/03/clafer-claferig-claferwiki-045-released.html).
+Integration of the [Clafer compiler and instance generators](https://www.clafer.org) into [Sublime Text 4](https://www.sublimetext.com/).
 
 Contributors
 ------------
 
-* [Michał Antkiewicz](http://gsd.uwaterloo.ca/mantkiew), Main developer.
+* [Michał Antkiewicz](https://github.com/mantkiew), Main developer.
 
 Features and Usage
 ------------------
 
-* Syntax highlighting of keywords, operators, comments, and integer and string literals
-* Compilation and validation `<CTRL>+b`. To change parameters of the command:
-   * `Preferences->Browse Packages`
-   * `cd Clafer Tools`
-   * edit `Clafer.sublime-build`
-* Instance generation (with simple scope inference) using
-   * Alloy-based instance generator `<CTRL>+i, g, a`
-   * Choco-based instance generator `<CTRL>+i, g, c`
-   * Z3 SMT-based instance generator `<CTRL>+i, g, s` (only for 0.3.6.1)
+In a Clafer model (`.cfr`):
+
+* Syntax highlighting of keywords, operators, comments, strings and numbers, compiler directives
+  (`//# OPTIONS` on the first line, `//# FRAGMENT`, `//# GRAPH`, `//# STATS`, `//# SUMMARY`),
+  and embedded Alloy and JavaScript (`[alloy| … |]`, `[choco| … |]`).
+* Compilation `ctrl+b` (`Tools > Build`): the compiler's errors are shown in the model, at their position,
+  and its output in a panel. The variant `Validate` (`ctrl+shift+b`) also validates the generated outputs
+  with Alloy and chocosolver.
+* Instance generation in a [Terminus](https://packagecontrol.io/packages/Terminus) tab:
+  * Alloy-based instance generator (claferIG) `ctrl+i, g, a`
+  * Choco-based instance generator (chocosolver) `ctrl+i, g, c`
+* The Command Palette has the same commands under `Clafer:`.
 
 Installation
 ------------
 
-1. Install [Sublime Text 3](http://www.sublimetext.com/3). 
-On Ubuntu, add the [WebUpd8 PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3) then execute `sudo apt install sublime-text-installer`. 
-2. In Sublime Text
-   * Install `Package Control`
-      * `Tools->Install Package Control...`
-   * Install packages `SublimeREPL`, `Clafer Tools` and (optionally) `SidebarEnhancements`
-      * `Preferences->Package Control->Install Package`
-      * type the name of the package
-   * Open the `Packages` folder
-      * `Preferences->Browse Packages...`
-      * copy the folder `SublimeREPL` from `Clafer Tools` to `Packages`
-         * on Mac, use the `merge` option not `replace`
-3. Download the latest binary distribution of Clafer Tools
-   * [Clafer Tools](http://gsd.uwaterloo.ca/clafer-tools-binary-distributions)
-   * Unzip the contents of the folder `clafer-tools-0.4.5` into `Packages/Clafer-Bin`
-      * Make sure the folder structure is NOT `Packages/Clafer-Bin/clafer-tools-0.4.5`, that is, the contents of the folder `clafer-tools-0.4.5` are directly inside `Clafer-Bin`
-   * (optional) add `Clafer-Bin` to the variable `PATH`.
-4. On Windows only
-   * Alloy-based instance generator only works with 32bit Java on Windows and if you only have 64bit Java installation, you will see an error: `Exception in thread "main" java.lang.UnsatisfiedLinkError: no minisatproverx1 in java.library.path`.
+1. Install [Sublime Text 4](https://www.sublimetext.com/download).
+2. In Sublime Text, install the packages `Clafer Tools` and `Terminus` with Package Control:
+   `Tools > Command Palette > Package Control: Install Package`.
+3. Download a [binary distribution of the Clafer tools](https://wiselab.uwaterloo.ca/clafer-tools-binary-distributions)
+   and unpack it into a folder of your choice. The instance generators need Java 17 or later.
+4. Either add that folder to `PATH`, or set `tools_path` to it in
+   `Preferences > Package Settings > Clafer Tools > Settings`.
 
-### Known Limitations and Workarounds
+Settings
+--------
 
-* On Windows - Setting the PATH to 32bit Java installation
-   * install [32bit JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) but do not modify the PATH to point to it (there's no 32bit JRE anymore)
-   * in Sublime Text
-      * `Preferences->Package Settings->SublimeREPL->Settings - Default`
-      * set `default_extended_env` as `"default_extend_env": {"PATH": "C:/Program Files (x86)/Java/jdk1.8.0_102/bin;{PATH}"},`
+* `tools_path`: the folder of the Clafer tools (`clafer`, `claferIG`, `chocosolver.jar`, `alloy6.2.0.jar`).
+  Empty (the default): use the tools on `PATH`.
+* `clafer_args`: the arguments of `clafer` for compilation; the model is added at the end.
+  Default: `["-m", "alloy", "-m", "choco", "-m", "html", "--self-contained"]`.
 
-* On Linux and Mac
-   * the Python 3 executable is called `python3` and the best solution is to create a symlink called `python`  pointing to `/usr/bin/python3`
-      * in `Packages/Clafer Tools` execute `ln -s /usr/bin/python3 python`.
-   * it's also needed to add the current directory `.` to the `PATH`, so that the executables are found. Add the following line at the end of your `.profile`
-      * `PATH=".:$PATH"`
-   * for python to be able to find the `Z3` library, add the following line to your `.profile`
-      * on Linux, `export LD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$LD_LIBRARY_PATH"`
-      * on Mac, `export DYLD_LIBRARY_PATH="~/.config/sublime-text-3/Packages/Clafer-Bin:$DYLD_LIBRARY_PATH"`
+Development
+-----------
 
-* On MacOS Yosemite, the preferred way of setting the variable `PATH` is by editing `/etc/paths`. However, despite that, Sublime Text 2/3 will not see the specified values because it is a GUI application and it will only see `/usr/bin:/bin:/usr/sbin:/sbin:/`. To check the value of `PATH` visible to Sublime
-   1. open console `View->Show Console`
-   2. execute `import os; print (os.environ['PATH'])`
-   3. if you see `/usr/bin:/bin:/usr/sbin:/sbin:/`, you are affected by the Yosemite `PATH` bug and ClaferChocoIG will be unable to comple the model for you because it calls the clafer executable.
-   4. the workaround is to:
-      * create a symlink `sudo ln -s ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/clafer /usr/bin/clafer` so that `clafer` executable will be visible on the default `PATH`.
-   5. to conveniently use ClaferChocoIG, move the script `claferchocoig.sh` (included in Mac binary distro) to `/usr/bin` by executing `sudo mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Clafer-Bin/claferchocoig.sh /usr/bin`.
-
-* ClaferSMT in Clafer Tools 0.3.6.1 binary depends on the python package `bintrees`, to install execute `pip install bintrees` on Windows or `pip3 install bintrees` on Linux and Mac.   
-
-
-Planned Improvements
---------------------
-
-* Code snippets for quantified expressions such as `[ all disj x1; x2 : X | ... ]`
+`syntax_test_clafer.cfr` tests the syntax: open it and run `Tools > Build With… > Syntax Tests`.
+Sublime Text 3 users can keep using [Clafer Tools 0.4.5](https://github.com/gsdlab/ClaferToolsST/tree/0.4.5).
