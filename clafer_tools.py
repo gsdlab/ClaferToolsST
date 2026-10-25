@@ -15,11 +15,15 @@ SETTINGS = "Clafer Tools.sublime-settings"
 PANEL = "clafer"
 REGIONS = "clafer_errors"
 
-# "Compile error at line 3 column 5..." or "Parse failed at line 3 column 5...",
-# followed by the message; a ClaferErr without a position prints "Error...".
-ERROR = re.compile(r"^(?:Compile error|Parse failed) at line (\d+) column (\d+)\.\.\.$|^Error\.\.\.$", re.M)
+# "Compile error at model.cfr:3:5..." or "Parse failed at model.cfr:3:5...", followed by the
+# message; the file is the one in which the error is, a path relative to the model's folder or a
+# URL. Before Clafer 0.5.4, "at line 3 column 5..." in the compiled file. A ClaferErr without a
+# position prints "Error...".
+ERROR = re.compile(r"^(?:Compile error|Parse failed) at (?:(.+):(\d+):(\d+)|line (\d+) column (\d+))\.\.\.$|^Error\.\.\.$", re.M)
+# The errors with a file, for navigating from the output panel.
+RESULT_FILE = r"^(?:Compile error|Parse failed) at (.+):(\d+):(\d+)\.\.\.$"
 
-# The view of each model by file name, to clear its errors on the next build.
+# The views with the errors of each model by file name, to clear them on the next build.
 _error_views = {}
 
 
@@ -62,17 +66,20 @@ def is_clafer(view):
 
 
 def parse_errors(output):
-    """The errors in clafer's output as (line, column, message), from 1; line 0 if
-    the error has no position."""
+    """The errors in clafer's output as (file, line, column, message): the file in which
+    the error is (None for the compiled file), lines and columns from 1; line 0 if the
+    error has no position."""
     errors = []
     matches = list(ERROR.finditer(output))
     for match, following in zip(matches, matches[1:] + [None]):
         end = following.start() if following else len(output)
         message = output[match.end():end].strip()
         if match.group(1):
-            errors.append((int(match.group(1)), int(match.group(2)), message))
+            errors.append((match.group(1), int(match.group(2)), int(match.group(3)), message))
+        elif match.group(4):
+            errors.append((None, int(match.group(4)), int(match.group(5)), message))
         else:
-            errors.append((0, 0, message))
+            errors.append((None, 0, 0, message))
     return errors
 
 
@@ -92,23 +99,39 @@ def text_point(view, line, column):
     return start + len(text)
 
 
-def show_errors(view, errors):
-    regions, annotations = [], []
-    for line, column, message in errors:
-        point = text_point(view, line, column)
-        word = view.word(point)
-        regions.append(word if word.contains(point) and not word.empty() else sublime.Region(point, point))
-        annotations.append(html.escape(message).replace("\n", "<br>"))
-    view.add_regions(
-        REGIONS, regions, scope="region.redish", icon="circle",
-        flags=sublime.DRAW_SQUIGGLY_UNDERLINE | sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE,
-        annotations=annotations, annotation_color="#e06c75")
-    _error_views[view.file_name()] = view.id()
+def show_errors(window, view, errors):
+    """Shows the errors of the model in the view in the files in which they are: the model,
+    or a file it imports if the file is open. An error in another file is also shown at the
+    start of the model, where the imports are, with the file and the position in it."""
+    model = os.path.normpath(view.file_name())
+    by_view = {view.id(): (view, [])}
+    for file, line, column, message in errors:
+        path = model
+        if file is not None:
+            path = None if re.match(r"https?://", file) else os.path.normpath(os.path.join(os.path.dirname(model), file))
+        if path == model:
+            by_view[view.id()][1].append((line, column, message))
+            continue
+        target = window.find_open_file(path) if path else None
+        if target is not None:
+            by_view.setdefault(target.id(), (target, []))[1].append((line, column, message))
+        by_view[view.id()][1].append((0, 0, "{}:{}:{}: {}".format(file, line, column, message)))
+    for target, target_errors in by_view.values():
+        regions, annotations = [], []
+        for line, column, message in target_errors:
+            point = text_point(target, line, column)
+            word = target.word(point)
+            regions.append(word if word.contains(point) and not word.empty() else sublime.Region(point, point))
+            annotations.append(html.escape(message).replace("\n", "<br>"))
+        target.add_regions(
+            REGIONS, regions, scope="region.redish", icon="circle",
+            flags=sublime.DRAW_SQUIGGLY_UNDERLINE | sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE,
+            annotations=annotations, annotation_color="#e06c75")
+    _error_views[view.file_name()] = list(by_view)
 
 
 def clear_errors(file_name):
-    view_id = _error_views.pop(file_name, None)
-    if view_id is not None:
+    for view_id in _error_views.pop(file_name, []):
         sublime.View(view_id).erase_regions(REGIONS)
 
 
@@ -138,6 +161,8 @@ class ClaferBuildCommand(sublime_plugin.WindowCommand):
             cmd[1:1] = ["--validate", "--tooldir=" + tools_dir()]
         clear_errors(file_name)
         panel = self.window.create_output_panel(PANEL)
+        panel.settings().set("result_file_regex", RESULT_FILE)
+        panel.settings().set("result_base_dir", os.path.dirname(file_name))
         panel.run_command("append", {"characters": " ".join(cmd) + "\n"})
         self.window.run_command("show_panel", {"panel": "output." + PANEL})
         threading.Thread(target=self.compile, args=(cmd, file_name, view, panel), daemon=True).start()
@@ -158,7 +183,7 @@ class ClaferBuildCommand(sublime_plugin.WindowCommand):
         def finish():
             panel.run_command("append", {"characters": output + "\n[exit code {}]\n".format(code)})
             if errors and view.is_valid():
-                show_errors(view, errors)
+                show_errors(self.window, view, errors)
             sublime.status_message("Clafer: {} error(s)".format(len(errors)) if code else "Clafer: compiled")
         sublime.set_timeout(finish)
 
