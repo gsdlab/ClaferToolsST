@@ -22,6 +22,7 @@ REGIONS = "clafer_errors"
 ERROR = re.compile(r"^(?:Compile error|Parse failed) at (?:(.+):(\d+):(\d+)|line (\d+) column (\d+))\.\.\.$|^Error\.\.\.$", re.M)
 # The errors with a file, for navigating from the output panel.
 RESULT_FILE = r"^(?:Compile error|Parse failed) at (.+):(\d+):(\d+)\.\.\.$"
+LINKS = "clafer_links"
 
 # The views with the errors of each model by file name, to clear them on the next build.
 _error_views = {}
@@ -130,6 +131,15 @@ def show_errors(window, view, errors):
     _error_views[view.file_name()] = list(by_view)
 
 
+def underline_links(panel):
+    """Underlines the positions of the errors in the output panel (file:line:column), which
+    open the file at the error with a double-click or F4."""
+    text = panel.substr(sublime.Region(0, panel.size()))
+    links = [sublime.Region(match.start(1), match.end(3)) for match in re.finditer(RESULT_FILE, text, re.M)]
+    panel.add_regions(LINKS, links, scope="markup.underline.link",
+                      flags=sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE | sublime.DRAW_SOLID_UNDERLINE)
+
+
 def clear_errors(file_name):
     for view_id in _error_views.pop(file_name, []):
         sublime.View(view_id).erase_regions(REGIONS)
@@ -182,6 +192,7 @@ class ClaferBuildCommand(sublime_plugin.WindowCommand):
 
         def finish():
             panel.run_command("append", {"characters": output + "\n[exit code {}]\n".format(code)})
+            underline_links(panel)
             if errors and view.is_valid():
                 show_errors(self.window, view, errors)
             sublime.status_message("Clafer: {} error(s)".format(len(errors)) if code else "Clafer: compiled")

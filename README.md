@@ -20,8 +20,8 @@ In a Clafer model (`.cfr`):
   and embedded Alloy and JavaScript (`[alloy| … |]`, `[choco| … |]`).
 * Compilation `ctrl+b` (`Tools > Build`): the compiler's errors are shown in the model, at their position,
   and its output in a panel. An error in a file that the model imports (`--import`, Clafer 0.5.4) is shown at the start
-  of the model, with the file and the position in it, and in that file if it is open; double-click the error in
-  the panel to open the file at the error. The variant `Validate` (`ctrl+shift+b`) also validates the generated outputs
+  of the model, with the file and the position in it, and in that file if it is open; double-click the error's underlined
+  position in the panel, or press `F4`, to open the file at the error. The variant `Validate` (`ctrl+shift+b`) also validates the generated outputs
   with Alloy and chocosolver.
 * Instance generation in a [Terminus](https://packagecontrol.io/packages/Terminus) tab:
   * Alloy-based instance generator (claferIG) `ctrl+i, g, a`
