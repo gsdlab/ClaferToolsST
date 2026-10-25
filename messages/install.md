@@ -7,7 +7,7 @@ To finish the installation:
 
 1. Download a binary distribution of the Clafer tools from
    https://wiselab.uwaterloo.ca/clafer-tools-binary-distributions
-   and unpack it into a folder of your choice. The instance generators need Java 17 or later.
+   and unpack it into a folder of your choice. The instance generators need Java 21 or later.
 2. Either add that folder to `PATH`, or set `tools_path` to it in
    `Preferences > Package Settings > Clafer Tools > Settings`.
 3. Install the package `Terminus` with Package Control, to run the instance generators.

@@ -33,7 +33,7 @@ Installation
 2. In Sublime Text, install the packages `Clafer Tools` and `Terminus` with Package Control:
    `Tools > Command Palette > Package Control: Install Package`.
 3. Download a [binary distribution of the Clafer tools](https://wiselab.uwaterloo.ca/clafer-tools-binary-distributions)
-   and unpack it into a folder of your choice. The instance generators need Java 17 or later.
+   and unpack it into a folder of your choice. The instance generators need Java 21 or later.
 4. Either add that folder to `PATH`, or set `tools_path` to it in
    `Preferences > Package Settings > Clafer Tools > Settings`.
 
@@ -49,4 +49,3 @@ Development
 -----------
 
 `syntax_test_clafer.cfr` tests the syntax: open it and run `Tools > Build With… > Syntax Tests`.
-Sublime Text 3 users can keep using [Clafer Tools 0.4.5](https://github.com/gsdlab/ClaferToolsST/tree/0.4.5).
