@@ -1,0 +1,126 @@
+%YAML 1.2
+---
+# Follows the Clafer grammar of clafer-vscode (syntaxes/clafer.tmLanguage.json).
+name: Clafer
+scope: source.clafer
+version: 2
+file_extensions:
+  - cfr
+
+variables:
+  # word boundaries: Clafer names may contain apostrophes (same')
+  before: (?<![\w'])
+  after: (?![\w'])
+
+contexts:
+  # The compiler reads //# OPTIONS only as a prefix of the first line of the file.
+  main:
+    - match: (//#) (OPTIONS)\b
+      captures:
+        1: punctuation.definition.directive.clafer
+        2: keyword.control.directive.clafer
+      set: [body, options]
+    - match: (?=[\s\S])
+      set: body
+
+  options:
+    - meta_scope: meta.preprocessor.directive.options.clafer
+    - match: (?<!\S)--?[^\s=]+(?:=\S*)?
+      scope: variable.parameter.option.clafer
+    - match: $\n?
+      pop: true
+
+  body:
+    - include: directives
+    - include: comments
+    - include: embedded
+    - include: strings
+    - include: numbers
+    - include: keywords
+    - include: builtins
+    - include: operators
+
+  # The other directives only alone on a line, as written.
+  directives:
+    - match: ^(//#) (FRAGMENT|GRAPH|STATS|SUMMARY)$
+      scope: meta.preprocessor.directive.clafer
+      captures:
+        1: punctuation.definition.directive.clafer
+        2: keyword.control.directive.clafer
+
+  comments:
+    - match: /\*
+      scope: punctuation.definition.comment.begin.clafer
+      push:
+        - meta_scope: comment.block.clafer
+        - match: \*/
+          scope: punctuation.definition.comment.end.clafer
+          pop: true
+    - match: //
+      scope: punctuation.definition.comment.clafer
+      push:
+        - meta_scope: comment.line.double-slash.clafer
+        - match: $\n?
+          pop: true
+
+  embedded:
+    - match: \[(alloy)\|
+      captures:
+        0: punctuation.section.embedded.begin.clafer
+        1: keyword.other.embedded.clafer
+      push:
+        - meta_scope: meta.embedded.block.alloy.clafer
+        - meta_content_scope: source.alloy
+        - match: \|\]
+          scope: punctuation.section.embedded.end.clafer
+          pop: true
+    - match: \[(choco)\|
+      captures:
+        0: punctuation.section.embedded.begin.clafer
+        1: keyword.other.embedded.clafer
+      embed: scope:source.js
+      embed_scope: meta.embedded.block.choco.clafer source.js
+      escape: \|\]
+      escape_captures:
+        0: punctuation.section.embedded.end.clafer
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.clafer
+      push:
+        - meta_scope: string.quoted.double.clafer
+        - match: '"'
+          scope: punctuation.definition.string.end.clafer
+          pop: true
+        - match: \\["\\nt]
+          scope: constant.character.escape.clafer
+        - match: \\.
+          scope: invalid.illegal.escape.clafer
+
+  numbers:
+    - match: \b\d+(?:\.\d+(?:e-?\d+)?)?\b
+      scope: constant.numeric.clafer
+
+  keywords:
+    - match: '{{before}}(abstract|initial|final|finalref|finaltarget){{after}}'
+      scope: storage.modifier.clafer
+    - match: '{{before}}(enum|assert|minimize|maximize){{after}}'
+      scope: keyword.other.clafer
+    - match: '{{before}}(if|then|else|let){{after}}'
+      scope: keyword.control.clafer
+    - match: '{{before}}(never|sometime|lonce|always|must|precede|follow|initially|finally|until|weakuntil|eventually|globally|next|before|after|between|U|W|F|G|X){{after}}'
+      scope: keyword.control.temporal.clafer
+    - match: '{{before}}(xor|or|mux|opt|all|disj|no|not|lone|one|some|in|and){{after}}'
+      scope: keyword.operator.word.clafer
+    - match: '{{before}}(sum|product|min|max){{after}}'
+      scope: support.function.clafer
+
+  builtins:
+    - match: '{{before}}(this|parent|dref|root|children){{after}}'
+      scope: variable.language.clafer
+    - match: '{{before}}(clafer|int|integer|string|real|double|boolean){{after}}'
+      scope: support.type.clafer
+
+  operators:
+    - match: \]->>|-->>|\]->|-->|<=>|->>|-\[|->|<:|:>|&&|\|\||\+\+|\*\*|--|:=|!=|>=|<=|=>|\.\.|<<|>>|[#?*+:\-/%.\\,=<>!&|;`]
+      scope: keyword.operator.clafer

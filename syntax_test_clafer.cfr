@@ -1,0 +1,79 @@
+// SYNTAX TEST "Packages/Clafer Tools/Clafer.sublime-syntax"
+
+abstract xor Phone
+// <- storage.modifier.clafer
+//       ^^^ keyword.operator.word.clafer
+    same' ?
+//  ^^^^^ - keyword
+//        ^ keyword.operator.clafer
+    option -> integer = 3
+//         ^^ keyword.operator.clafer
+//            ^^^^^^^ support.type.clafer
+//                      ^ constant.numeric.clafer
+
+opt Extras 2..3
+// <- keyword.operator.word.clafer
+//         ^ constant.numeric.clafer
+//          ^^ keyword.operator.clafer
+
+[ some this.dref ]
+//^^^^ keyword.operator.word.clafer
+//     ^^^^ variable.language.clafer
+//          ^^^^ variable.language.clafer
+
+[ if a then b else c ]
+//^^ keyword.control.clafer
+//     ^^^^ keyword.control.clafer
+
+[ always no x ]
+//^^^^^^ keyword.control.temporal.clafer
+
+name -> string = "a \"quoted\" name\n"
+//               ^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.clafer
+//                  ^^ constant.character.escape.clafer
+//                                 ^^ constant.character.escape.clafer
+
+bad -> string = "\q"
+//               ^^ invalid.illegal.escape.clafer
+
+// a line comment with xor
+// ^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.clafer
+
+/* a block comment
+   with abstract */
+// ^^^^^^^^^^^^^ comment.block.clafer
+
+x /*inline*/ y
+//^^^^^^^^^^ comment.block.clafer
+//           ^ - comment
+
+//# FRAGMENT
+// <- meta.preprocessor.directive.clafer punctuation.definition.directive.clafer
+//  ^^^^^^^^ keyword.control.directive.clafer
+
+//# SUMMARY extra
+// <- comment.line.double-slash.clafer - meta.preprocessor
+
+  //# GRAPH
+//^^^^^^^^^ comment.line.double-slash.clafer - meta.preprocessor
+
+//# OPTIONS --maxint=5
+// <- comment.line.double-slash.clafer - meta.preprocessor
+
+[alloy|
+// <- punctuation.section.embedded.begin.clafer
+//^^^^ keyword.other.embedded.clafer
+  sig A {}
+//^^^^^^^^ meta.embedded.block.alloy.clafer source.alloy
+|]
+// <- punctuation.section.embedded.end.clafer
+
+[choco|
+//^^^^ keyword.other.embedded.clafer
+  var x = 1;
+//^^^ meta.embedded.block.choco.clafer source.js
+|]
+// <- punctuation.section.embedded.end.clafer
+
+after
+// <- - meta.embedded

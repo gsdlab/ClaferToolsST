@@ -1,0 +1,4 @@
+__pycache__/
+# outputs of compiling the syntax test
+syntax_test_clafer.*
+!syntax_test_clafer.cfr

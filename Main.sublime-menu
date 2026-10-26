@@ -1,0 +1,22 @@
+[
+    {
+        "id": "preferences",
+        "children": [
+            {
+                "id": "package-settings",
+                "children": [
+                    {
+                        "caption": "Clafer Tools",
+                        "children": [
+                            {
+                                "caption": "Settings",
+                                "command": "edit_settings",
+                                "args": { "base_file": "${packages}/Clafer Tools/Clafer Tools.sublime-settings", "default": "{\n\t$0\n}\n" }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
