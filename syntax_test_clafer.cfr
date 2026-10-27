@@ -10,6 +10,9 @@ abstract xor Phone
 //         ^^ keyword.operator.clafer
 //            ^^^^^^^ support.type.clafer
 //                      ^ constant.numeric.clafer
+    cost -> decimal = 19.99
+//          ^^^^^^^ support.type.clafer
+//                    ^^^^^ constant.numeric.clafer
 
 opt Extras 2..3
 // <- keyword.operator.word.clafer
