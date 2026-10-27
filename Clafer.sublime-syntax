@@ -118,7 +118,7 @@ contexts:
   builtins:
     - match: '{{before}}(this|parent|dref|root|children){{after}}'
       scope: variable.language.clafer
-    - match: '{{before}}(clafer|int|integer|string|real|double|boolean){{after}}'
+    - match: '{{before}}(clafer|int|integer|decimal|string|real|double|boolean){{after}}'
       scope: support.type.clafer
 
   operators:
