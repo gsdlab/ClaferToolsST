@@ -43,7 +43,7 @@ def tools_dir():
 
 def tools_env():
     """The environment for the tools: the configured folder first on PATH, since
-    chocosolver runs clafer itself."""
+    clafersg runs clafer itself, for the models that its Java frontend does not take."""
     env = os.environ.copy()
     configured = os.path.expanduser(settings().get("tools_path") or "")
     if configured:
@@ -201,7 +201,7 @@ class ClaferBuildCommand(sublime_plugin.WindowCommand):
 
 class ClaferInstancesCommand(sublime_plugin.WindowCommand):
     """Runs an instance generator for the model in the active view in a Terminus tab:
-    claferIG (Alloy) or chocosolver's REPL (Choco)."""
+    claferIG (Alloy) or clafersg's REPL (Choco)."""
 
     def run(self, backend="choco"):
         view = self.window.active_view()
@@ -216,10 +216,10 @@ class ClaferInstancesCommand(sublime_plugin.WindowCommand):
                 return self.not_found("claferIG")
             cmd = [claferIG, os.path.basename(file_name)]
         else:
-            jar = os.path.join(tools_dir(), "chocosolver.jar")
-            if not os.path.isfile(jar):
-                return self.not_found("chocosolver.jar")
-            cmd = ["java", "-jar", jar, "--repl", "--prettify", "--file", os.path.basename(file_name)]
+            clafersg = tool("clafersg")
+            if not clafersg:
+                return self.not_found("clafersg")
+            cmd = [clafersg, "--repl", "--prettify", "--file", os.path.basename(file_name)]
         if not sublime.find_resources("Terminus.sublime-settings"):
             sublime.error_message("Clafer Tools: the instance generators run in a Terminus tab.\n\n"
                                   "Install the package Terminus with Package Control.")
