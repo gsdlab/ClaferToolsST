@@ -17,5 +17,5 @@ Usage, in a Clafer model (`.cfr`):
 * `Tools > Build` (`ctrl+b`) compiles the model and shows the compiler's errors in it;
   the variant `Validate` (`ctrl+shift+b`) also validates the generated outputs.
 * `ctrl+i, g, a` runs the Alloy-based instance generator (claferIG),
-  `ctrl+i, g, c` the Choco-based one (chocosolver), in a Terminus tab.
+  `ctrl+i, g, c` the Choco-based one (clafersg), in a Terminus tab.
 * The Command Palette has the same commands under `Clafer:`.
